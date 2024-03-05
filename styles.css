@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Poppins:wght@400;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+    --Gradient: hsl(6, 100%, 80%) to hsl(335, 100%, 65%);
+    --Pale_Blue: hsl(243, 100%, 93%);
+    --Grayish_Blue: hsl(229, 7%, 55%);
+    --Dark_Blue: hsl(228, 56%, 26%);
+    --Very_Dark_Blue: hsl(229, 57%, 11%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway';
+}
+
+body {
+    min-height: 100vh;
+    background-image: url(./images/bg-mobile.png);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.memory__logo {
+    background-color: var(--Dark_Blue);
+    padding: 41px 108px 41px 41px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 90px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 34px;
+    margin-bottom: 16px;
+    box-shadow: rgba(0, 0, 0, 0.2) 8px 11px 18px 0px;
+}
+
+.memory__icon {
+    width: 136px;
+    height: 40px;
+}
+
+.memory__picture {
+    display: flex;
+    column-gap: 16px;
+}
+
+.memory__picture--function {
+    background-color: var(--Very_Dark_Blue);
+    width: 48px;
+    height: 48px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.memory__picture--function img {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+}
+
+.memory__usage {
+    background-color: var(--Dark_Blue);
+    padding: 35px 30px 55px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.2) 8px 11px 18px 0px;
+}
+
+.memory__usage--lost {
+    font-size: 14px;
+    color: var(--Pale_Blue);
+    font-weight: 400;
+}
+
+.memory__usage--lost span {
+    font-weight: 700;
+}
+
+.memory__usage--level {
+    width: 100%;
+    max-width: 100%;
+    min-height: 20px;
+    background-color: var(--Very_Dark_Blue);
+    border-radius: 30px;
+    position: relative;
+    margin: 16px 0 12px 0;
+}
+
+.memory__usage--status {
+    position: absolute;
+    background-image: linear-gradient(to right, hsl(6, 100%, 80%), hsl(335, 100%, 65%));
+    top: 3px;
+    left: 3px;
+    bottom: 3px;
+    height: 14px;
+    width: 72%;
+    border-radius: 30px;
+}
+
+.memory__usage--status::before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    width: 10px;
+    height: 10px;
+    z-index: 1;
+    border-radius: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2px;
+}
+
+.memory__usage--remain {
+    color: var(--Very_Dark_Blue);
+    font-weight: 700;
+    position: absolute;
+    background-color: white;
+    border-radius: 8px;
+    width: 180px;
+    height: 72px;
+    top: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    column-gap: 10px;
+}
+
+
+
+h1 span {
+    text-transform: uppercase;
+    font-size: 14px;
+    color: var(--Grayish_Blue);
+}
+
+.memory__usage--used {
+    font-size: 14px;
+    color: var(--Pale_Blue);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.memory__minimum {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.memory__maximum {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+@media (min-width: 930px) {
+    body {
+        background-color: var(--Very_Dark_Blue);
+        background-image: url(./images/bg-desktop.png);
+        position: relative;
+        background-size: 100% 50%;
+        background-repeat: no-repeat;
+        background-position: bottom;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 30px;
+        align-items: flex-end;
+    }
+
+    .memory__logo {
+        grid-column: 2 / span 1;
+        margin: 0;
+        padding-right: 133px;
+    }
+
+    .memory__usage {
+        grid-column: span 3;
+        padding: 43px 40px 43px;
+        align-items: flex-start;
+        justify-content: center;
+        height: 154px;
+    }
+
+    .memory__usage--status::before {
+        content: "";
+        position: absolute;
+        background-color: white;
+        width: 10px;
+        height: 10px;
+        z-index: 1;
+        border-radius: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 2px;
+    }
+
+    .memory__usage--remain {
+        top: -11px;
+        right: 40px;
+        border-bottom-right-radius: 0;
+    }
+
+    .memory__usage--remain::after {
+        border-top: 10px solid white;
+        border-right: 10px solid white;
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid transparent;
+        position: absolute;
+        content: "";
+        top: 100%;
+        right: 0;
+    }
+
+
+
+}
